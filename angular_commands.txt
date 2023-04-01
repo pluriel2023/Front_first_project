@@ -3,3 +3,11 @@ ng g m modules/task --route task --module app.module
 
 ng g c modules/configuration/views/FirstConfiguration --module modules/configuration/configuration.module
 ng g c modules/task/views/SecondTask --module modules/configuration/task.module
+
+
+ng g s services/First
+
+
+ng g c modules/configuration/views/first-configuration/components/formPost --module modules/configuration/configuration.module
+ng g c modules/configuration/views/first-configuration/components/formAddPost --module modules/configuration/configuration.module
+ng g c modules/configuration/views/first-configuration/components/formUpdatePost --module modules/configuration/configuration.module

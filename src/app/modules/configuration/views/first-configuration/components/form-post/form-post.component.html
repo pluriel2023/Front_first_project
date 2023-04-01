@@ -1,0 +1,32 @@
+<div class="body">
+    <form class="register-form m-4" [formGroup]="form"
+        (ngSubmit)="(form.markAllAsTouched() == null) && handleSubmit($event)" autocomplete="off">
+        <div class="row">
+            <div class="col-12 mb-2">
+                <mat-form-field appearance="outline" style="width: 50%">
+                    <mat-label>Title</mat-label>
+                    <input matInput formControlName="title" />
+                    <mat-hint>* Write your title</mat-hint>
+                    <mat-error *ngIf="form.get('title').touched && form.get('title').hasError('required')">* This field is required</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-12 mb-2">
+                <mat-form-field appearance="outline" style="width: 50%">
+                    <mat-label>Body</mat-label>
+                    <textarea matInput formControlName="body"
+                            cdkAutosizeMinRows="1"
+                            cdkAutosizeMaxRows="5"></textarea>
+                    <mat-hint>* Write your Body</mat-hint>
+                    <mat-error *ngIf="form.get('body').touched && form.get('body').hasError('required')">* This field is required</mat-error>
+                  </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 mb-2">
+                <button [disabled]="!form.valid" mat-raised-button color="primary" type="submit">
+                    Send
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
