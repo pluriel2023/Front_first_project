@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -33,6 +34,8 @@ export class FormAddPostComponent implements OnInit {
       this.router.navigate(['/configuration/first']);
 
       return response;
+    },(error:HttpErrorResponse)=>{
+      console.log(error);
     });
   }
 

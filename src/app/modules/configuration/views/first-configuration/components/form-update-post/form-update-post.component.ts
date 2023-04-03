@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Post } from 'src/app/models/Post';
@@ -34,6 +35,8 @@ export class FormUpdatePostComponent implements OnInit {
       this.post = data;
       this.loadingPost=true;
       console.log(this.post);
+    },(error:HttpErrorResponse)=>{
+      console.log(error);
     });
     
   }
@@ -48,6 +51,8 @@ export class FormUpdatePostComponent implements OnInit {
       alert("Post updated successfully.");
       console.log('Post updated:', Response);
       this.router.navigate(['/configuration/first']);
+    },(error:HttpErrorResponse)=>{
+      console.log(error);
     });
 
 

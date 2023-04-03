@@ -64,6 +64,8 @@ export class FirstConfigurationComponent implements OnInit {
         this.dataSource.data.splice(index, 1);
         this.dataSource = new MatTableDataSource<Post>(this.dataSource.data);
       }
+    },(error:HttpErrorResponse)=>{
+      console.log(error);
     });
     
   }
