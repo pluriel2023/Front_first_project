@@ -45,6 +45,7 @@ export class FormUpdatePostComponent implements OnInit {
     this.post.title=post.title;
    this.post.body=post.body;
     this.firstService.update(this.post).subscribe(Response => {
+      alert("Post updated successfully.");
       console.log('Post updated:', Response);
       this.router.navigate(['/configuration/first']);
     });

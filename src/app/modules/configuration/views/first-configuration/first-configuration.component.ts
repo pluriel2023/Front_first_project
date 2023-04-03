@@ -57,7 +57,7 @@ export class FirstConfigurationComponent implements OnInit {
   public deletePost(post:Post){
     this.firstService.deletePost(post.id)
     .subscribe(() => {
-    
+     console.log(post);
       const index = this.dataSource.data.findIndex(p => p.id === post.id);
      
       if (index !== -1) {
