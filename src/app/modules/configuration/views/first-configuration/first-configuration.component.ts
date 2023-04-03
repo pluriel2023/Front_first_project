@@ -17,7 +17,7 @@ export class FirstConfigurationComponent implements OnInit {
   isFullFeed: boolean = false;
   //posts: Post[] = [];
 
-  displayedColumns: string[] = ['id', 'title', 'body'];
+  displayedColumns: string[] = ['id', 'title', 'body', 'actions'];
 
   dataSource: MatTableDataSource<Post>;
 
@@ -27,6 +27,12 @@ export class FirstConfigurationComponent implements OnInit {
   constructor(private firstService: FirstService) { }
 
   ngOnInit(): void {
+  
+    this.listPost();
+    
+  }
+
+  listPost(){
     this.firstService.getAll().subscribe({
       next: (response : any) => {
         this.isFullFeed = true;
@@ -54,5 +60,19 @@ export class FirstConfigurationComponent implements OnInit {
     }
   }
 
+  deletePost(id: number) {
+    if (confirm('sure')) {
+      this.firstService.delete(id).subscribe(
+        (resp) => {
+          this.listPost();
+          console.log("Done a 3amo");
+        },
+        (error: HttpErrorResponse) => {
+          console.log('Error deleting post:');
+          console.log(error);
+        }
+      );
+    }
+  }
 
 }

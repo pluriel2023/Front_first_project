@@ -29,6 +29,7 @@ export class FormPostComponent implements OnInit {
       }]
     });
     this.form.patchValue(this.post);
+    console.log(this.post);
   }
 
   handleSubmit(event: Event){
@@ -36,5 +37,6 @@ export class FormPostComponent implements OnInit {
     const values = this.form.value as Post;
     this.postSubmit.emit(values);
   }
+
 
 }
