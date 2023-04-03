@@ -12,7 +12,9 @@ import { FirstService } from 'src/app/services/first.service';
 export class FormUpdatePostComponent implements OnInit {
 
   post: Post = new Post();
-  loadingPost: boolean = false;
+  // loadingPost: boolean = false;
+  isFullFeed: boolean = false;
+
 
   constructor(private route: ActivatedRoute, private router: Router, private service: FirstService) { }
 
@@ -25,7 +27,7 @@ export class FormUpdatePostComponent implements OnInit {
   getById(id: number) {
     this.service.getById(id).subscribe((data) => {
       this.post = data;
-      this.loadingPost = true;
+      this.isFullFeed = true;
       // console.log(this.post);
     });
 
