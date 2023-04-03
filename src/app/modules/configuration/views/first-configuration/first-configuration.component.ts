@@ -17,7 +17,7 @@ export class FirstConfigurationComponent implements OnInit {
   isFullFeed: boolean = false;
   //posts: Post[] = [];
 
-  displayedColumns: string[] = ['id', 'title', 'body'];
+  displayedColumns: string[] = ['id', 'title', 'body','action'];
 
   dataSource: MatTableDataSource<Post>;
 
@@ -45,6 +45,7 @@ export class FirstConfigurationComponent implements OnInit {
     });
   }
 
+
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -53,6 +54,18 @@ export class FirstConfigurationComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
-
+  public deletePost(post:Post){
+    this.firstService.deletePost(post.id)
+    .subscribe(() => {
+    
+      const index = this.dataSource.data.findIndex(p => p.id === post.id);
+     
+      if (index !== -1) {
+        this.dataSource.data.splice(index, 1);
+        this.dataSource = new MatTableDataSource<Post>(this.dataSource.data);
+      }
+    });
+    
+  }
 
 }

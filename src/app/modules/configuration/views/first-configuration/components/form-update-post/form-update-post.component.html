@@ -1,1 +1,3 @@
-<p>form-update-post works!</p>
+<div class="card p-2">
+    <app-form-post *ngIf="loadingPost" [isAdding]="false" [post]="post" (postSubmit)="handleSubmit($event)"></app-form-post>
+</div>
