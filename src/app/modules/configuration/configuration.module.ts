@@ -9,7 +9,12 @@ import { FormPostComponent } from './views/first-configuration/components/form-p
 import { FormAddPostComponent } from './views/first-configuration/components/form-add-post/form-add-post.component';
 import { FormUpdatePostComponent } from './views/first-configuration/components/form-update-post/form-update-post.component';
 import { HelloWorldComponent } from './components/hello-world/hello-world.component';
+import { MatTableModule } from '@angular/material/table';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
+
 
 
 @NgModule({
@@ -26,7 +31,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ConfigurationRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    MaterialModule
+    MaterialModule,
+    MatIconModule,
   ]
 })
 export class ConfigurationModule { }

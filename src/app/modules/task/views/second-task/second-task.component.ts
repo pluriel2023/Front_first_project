@@ -8,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
 export class SecondTaskComponent implements OnInit {
 
   constructor() { }
+  showRedDiv = true;
+  
 
+  switch() {
+    this.showRedDiv = !this.showRedDiv;
+    
+  }
   ngOnInit(): void {
   }
 

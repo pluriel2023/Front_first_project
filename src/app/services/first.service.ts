@@ -8,13 +8,32 @@ import { Post } from '../models/Post';
 })
 export class FirstService {
 
-  readonly url = 'https://jsonplaceholder.typicode.com/';
+  readonly url = 'https://jsonplaceholder.typicode.com/posts';
 
   constructor(private http: HttpClient) { }
 
   getAll(): Observable<Post[]> {
-    const getAllEndPoint = this.url + 'posts';
-    return this.http.get<Post[]>(getAllEndPoint);
+
+    return this.http.get<Post[]>(this.url);
+  }
+
+  public addPost(post) {
+   
+    return this.http.post<Post>(this.url,post);
+  }
+  public deletePost(id:number) {
+
+    return this.http.delete<Post>(this.url+"/"+id);
+  }
+  getById(id: number) {
+    return this.http.get<Post>(this.url+"/"+id);
+  }
+   
+  update(post) {
+   return this.http.put<Post>(
+    this.url+"/"+post.id,
+    post
+   );
   }
 
 }

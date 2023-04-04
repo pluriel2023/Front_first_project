@@ -1,1 +1,8 @@
 <p>second-task works!</p>
+<button (click)="switch()" [ngClass]="{'red-btn': !showRedDiv, 'blue-btn': showRedDiv}">
+  
+    switch
+   </button>
+   
+   <div class="red-div" *ngIf="showRedDiv">gg</div>
+   <div class="blue-div" *ngIf="!showRedDiv">dd</div>
